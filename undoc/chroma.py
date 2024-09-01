@@ -69,10 +69,12 @@ def parse_documents_file(file_path:str,
                         i:str = i.split(sep=seperator)
 
                         for doc in i:
-                            parsed_docs.append(doc.strip())
+                            if doc != '':
+                                parsed_docs.append(doc.strip())
                     else:
                         parsed_docs.append(i.strip())
-    # think of this as 'batching'
+
+    # think of this as 'batching': concatenate x number of docs together
     if concatenate != 0:
         for i in range(0, len(parsed_docs), concatenate):
             concatenated_docs.append(parsed_docs[i:i+concatenate])
