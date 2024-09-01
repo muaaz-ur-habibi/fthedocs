@@ -40,7 +40,7 @@ if "--file" in argv:
         file_path = argv[argv.index('--file')+1]
     except IndexError:
         cons.print("[bold red]Error. No file path specified. HOW AM I SUPPOSED TO HELP YOU?")
-        cons.print("[bold red]To specify a file path, just type '--file path the_actual_file_path'")
+        cons.print("[bold red]To specify a file path, just type '--file the_actual_file_path'")
 
         exit(1)
 
