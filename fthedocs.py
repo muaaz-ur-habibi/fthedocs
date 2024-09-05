@@ -18,9 +18,10 @@ variables = {
     'parsing_seperator': '.',
     'file_type': 'text',
     'json_path': '',
-    'concatenate_after': 0,
     'amount_to_query': 1,
-    'limit_to_add': None
+    'limit_to_add': None,
+    'concatenation': 0,
+    'concatenator': ' '
 }
 
 # display help
@@ -31,7 +32,6 @@ if '--help' in argv or '-h' in argv:
     cons.print("[pink3]      |____Use --help to show this help command")
     cons.print("[pink3]      |____Use --json to specify that the input file is JSON")
     cons.print("[pink3]      |____Use --json-path to specify the where the script will locate the data (required if --json is specified)")
-    cons.print("[pink3]      |____Use --conc to specify the number of elements in list to concatenate after parsing.")
 
     exit(0)
 
@@ -60,7 +60,7 @@ if '--settings' in argv:
     
     cons.print("[bold yellow]Settings")
     
-    cons.print("|-1. (1) Change collection name\n|-2. (2) Change document id name\n|-3. (3) Change parsing seperator\n|-4. (4) Change amount of queried results\n|-5. Press (e) to exit")
+    cons.print("|-1. (1) Change collection name\n|-2. (2) Change document id name\n|-3. (3) Change parsing seperator\n|-4. (4) Change amount of queried results\n|-5. (5) Set an integer value to concatenate the results in\n|-6. (6) Change the concatenator character\n|-7. Press (e) to exit")
     
 
 
@@ -73,26 +73,41 @@ if '--settings' in argv:
             if option == '1':
                 cons.print(f"[cyan]Enter the new collection name. [underline]Current Value: {variables['collection_name']}")
                 new_collection_name = cons.input("[cyan]> ")
-                cons.print("[bold green]UPDATED")
                 variables['collection_name'] == new_collection_name
+                cons.print("[bold green]UPDATED")
             
             elif option == '2':
                 cons.print(f"[cyan]Enter the new document id starter. [underline]Current Value: {variables['document_id_starter']}")
                 new_document_id_starter = cons.input("[cyan]> ")
-                cons.print("[bold green]UPDATED")
                 variables["document_id_starter"] = new_document_id_starter
+                cons.print("[bold green]UPDATED")
 
             elif option == '3':
                 cons.print(f"[cyan]Enter the new parsing seperator. [underline]Current Value: {variables['parsing_seperator']}")
                 new_parsing_seperator = cons.input("[cyan]> ")
-                cons.print("[bold green]UPDATED")
                 variables['parsing_seperator'] = new_parsing_seperator
+                cons.print("[bold green]UPDATED")
             
             elif option == '4':
                 cons.print(f"[cyan]Enter the new amount to be queried. [underline]Current Value: {variables['amount_to_query']}")
                 new_amount_to_be_queried = cons.input("[cyan]> ")
-                cons.print("[bold green]UPDATED")
                 variables['amount_to_query'] = int(new_amount_to_be_queried)
+                cons.print("[bold green]UPDATED")
+            
+            elif option == '5':
+                cons.print(f"[cyan]Set a number of results to be concatenated together. [underline]Current Value: {variables['concatenation']}")
+                new_amount_to_be_concatenated = cons.input("[cyan]> ")
+                try:
+                    variables['concatenation'] = int(new_amount_to_be_concatenated)
+                    cons.print("[bold green]UPDATED")
+                except ValueError:
+                    cons.print("[bold red]Oh come on, dont you know the meaning of a 'number'?")
+            
+            elif option == '6':
+                cons.print(f"[cyan]Set a character to serve as the concatenator. Current Value: {variables['concatenator']}")
+                new_concatenator = cons.input("[cyan]> ")
+                variables['concatenator'] = new_concatenator
+                cons.print("[bold green]UPDATED")
 
             elif option == 'e':
                 exit_ = True
@@ -127,13 +142,6 @@ if '--json' in argv and '--json-path' not in argv:
     print("[bold red]Error. JSON path not specified. How will I know where to look for the data?")
     exit(1)
 
-if '--conc' in argv:
-    try:
-        variables['concatenate_after'] = int(argv[argv.index('--conc')+1])
-    except IndexError:
-        cons.print("[bold red]Error. You might want to specify a value for concatenation, dont you think?")
-        exit(1)
-
 if '--limit' in argv:
     try:
         variables['limit_to_add'] = argv[argv.index('--limit')+1]
@@ -150,7 +158,8 @@ try:
                                          seperator=variables['parsing_seperator'],
                                          file_type=variables['file_type'],
                                          json_path=variables["json_path"],
-                                         concatenate=variables['concatenate_after'],
+                                         concatenate=variables['concatenation'],
+                                         concatenator=variables['concatenator'],
                                          limit=variables['limit_to_add'])
 
         docs_collection = new_collection(docs=documents,
@@ -174,7 +183,7 @@ cons.clear()
 pyfiglet.print_figlet("F__kTheDocs", font="diet_cola", width=400)
 cons.rule("[italic]F**KTHEDOCS", style="rule.bar")
 print("\n")
-cons.print("[green]Entered asking mode.\n    [underline bold]Options[/underline bold]:\n      (a)round: returns specified number of elements around the selected one. Eg: a 2\n      (c)lear: clear the screen\n      (h)elp: print help info\n            (Ctrl+C): exit")
+cons.print("[green]Entered asking mode.\n    [underline bold]Options[/underline bold]:\n      (a)round: returns specified number of elements around the selected one. Eg: a 2\n      (c)lear: clear the screen\n      (h)elp: print help info\n      (Ctrl+C): exit")
 
 
 # this is used for the query around thing
@@ -218,7 +227,7 @@ while True:
             cons.print("[pink3]      |____Use --help to show this help command")
             cons.print("[pink3]      |____Use --json to specify that the input file is JSON")
             cons.print("[pink3]      |____Use --json-path to specify the where the script will locate the data (required if --json is specified)")
-            cons.print("[pink3]      |____Use --conc to specify the number of elements in list to concatenate after parsing.")
+            
 
         else:
             response:dict = query_the_docs(query_string=to_query,

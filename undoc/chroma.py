@@ -8,6 +8,7 @@ def parse_documents_file(file_path:str,
                          file_type:str='text',
                          json_path:str=None,
                          concatenate:int=0,
+                         concatenator:str=" ",
                          limit:str=None):
     '''Parsing function of the input data file. For now only supports text and json files'''
     parsed_docs = []
@@ -80,7 +81,7 @@ def parse_documents_file(file_path:str,
     # think of this as 'batching': concatenate x number of docs together
     if concatenate != 0:
         for i in range(0, len(parsed_docs), concatenate):
-            concatenated_doc = ' '.join(parsed_docs[i:i+concatenate])
+            concatenated_doc = concatenator.join(parsed_docs[i:i+concatenate])
             concatenated_docs.append(concatenated_doc)
 
         return concatenated_docs
