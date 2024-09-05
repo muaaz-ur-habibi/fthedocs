@@ -17,6 +17,7 @@ variables = {
     'document_id_starter': 'doco',
     'parsing_seperator': '.',
     'file_type': 'text',
+    'json_path': '',
     'concatenate_after': 0,
     'amount_to_query': 1,
     'limit_to_add': None
@@ -25,16 +26,22 @@ variables = {
 # display help
 if '--help' in argv or '-h' in argv:
     cons.print("[bold]HOW TO USE (if you dont understand anything here you can visit the README of the Github repo):")
-    cons.print("[pink1]      |____Use --file to state the file to use. Be sure to use the absolute file path")
-    cons.print("[pink1]      |____Use --settings to tweak the settings configuration")
-    cons.print("[pink1]      |____Use --help to show this help command")
-    cons.print("[pink1]      |____Use --json to specify that the input file is JSON")
-    cons.print("[pink1]      |____Use --json-path to specify the where the script will locate the data (required if --json is specified)")
-    cons.print("[pink1]      |____Use --conc to specify the number of elements in list to concatenate after parsing. Better explained in the docs")
+    cons.print("[pink3]      |____Use --file to state the file to use. Be sure to use the absolute file path")
+    cons.print("[pink3]      |____Use --settings to tweak the settings configuration")
+    cons.print("[pink3]      |____Use --help to show this help command")
+    cons.print("[pink3]      |____Use --json to specify that the input file is JSON")
+    cons.print("[pink3]      |____Use --json-path to specify the where the script will locate the data (required if --json is specified)")
+    cons.print("[pink3]      |____Use --conc to specify the number of elements in list to concatenate after parsing.")
 
     exit(0)
 
 # some simple command line parsing
+if "--file" not in argv and "--json" not in argv:
+    cons.print("[bold red]Error. No file path specified. HOW AM I SUPPOSED TO HELP YOU?")
+    cons.print("[red]To specify a file path, just type '--file the_actual_file_path' OR for a .json file, '--json the_actual_file_path'")
+
+    exit(1)
+
 if "--file" in argv:
     try:
         file_path = argv[argv.index('--file')+1]
@@ -44,11 +51,6 @@ if "--file" in argv:
 
         exit(1)
 
-else:
-    cons.print("[bold red]Error. No file path specified. HOW AM I SUPPOSED TO HELP YOU?")
-    cons.print("[red]To specify a file path, just type '--file the_actual_file_path'")
-
-    exit(1)
 
 if '--settings' in argv:
     cons.print("[yellow]Entering into settings")
@@ -105,6 +107,14 @@ if '--settings' in argv:
 if '--json' in argv:
     variables["file_type"] = 'json'
 
+    try:
+        file_path = argv[argv.index('--json')+1]
+    except IndexError:
+        cons.print("[bold red]Error. No file path specified. HOW AM I SUPPOSED TO HELP YOU?")
+        cons.print("[bold red]To specify a file path, just type '--json the_actual_file_path'")
+
+        exit(1)
+
 if '--json-path' in argv:
     try:
         variables['json_path'] = argv[argv.index('--json-path')+1]
@@ -139,6 +149,7 @@ try:
         documents = parse_documents_file(file_path=file_path,
                                          seperator=variables['parsing_seperator'],
                                          file_type=variables['file_type'],
+                                         json_path=variables["json_path"],
                                          concatenate=variables['concatenate_after'],
                                          limit=variables['limit_to_add'])
 
@@ -151,7 +162,7 @@ try:
     cons.print(f"[green]Items added: {docs_collection.count()}")
     cons.print("[green]Collection created successfully")
 
-except Exception as e:
+except KeyboardInterrupt as e:
     cons.print(f"[bold red]Error occured in creating a collection. Error: {e}")
 
 # let user read whatever the hell happened till now, though there isnt much to read
@@ -163,7 +174,7 @@ cons.clear()
 pyfiglet.print_figlet("F__kTheDocs", font="diet_cola", width=400)
 cons.rule("[italic]F**KTHEDOCS", style="rule.bar")
 print("\n")
-cons.print("[green]Entered asking mode.\n    [underline bold]Options[/underline bold]:\n      (a)round: returns specified number of elements around the selected one. Eg: a 2\n      (c)lear: clear the screen\n      (Ctrl+C): exit")
+cons.print("[green]Entered asking mode.\n    [underline bold]Options[/underline bold]:\n      (a)round: returns specified number of elements around the selected one. Eg: a 2\n      (c)lear: clear the screen\n      (h)elp: print help info\n            (Ctrl+C): exit")
 
 
 # this is used for the query around thing
@@ -200,14 +211,14 @@ while True:
             except IndexError:
                 cons.print("[bold red]Error. A syntax error. Did you follow the syntax for querying around a specific I.D?")
         
-        elif to_query == 'help':
+        elif to_query == 'h':
             cons.print("[bold]HOW TO USE (if you dont understand anything here you can visit the README of the Github repo):")
-            cons.print("[pink1]      |____Use --file to state the file to use. Be sure to use the absolute file path")
-            cons.print("[pink1]      |____Use --settings to tweak the settings configuration")
-            cons.print("[pink1]      |____Use --help to show this help command")
-            cons.print("[pink1]      |____Use --json to specify that the input file is JSON")
-            cons.print("[pink1]      |____Use --json-path to specify the where the script will locate the data (required if --json is specified)")
-            cons.print("[pink1]      |____Use --conc to specify the number of elements in list to concatenate after parsing. Better explained in the docs")
+            cons.print("[pink3]      |____Use --file to state the file to use. Be sure to use the absolute file path")
+            cons.print("[pink3]      |____Use --settings to tweak the settings configuration")
+            cons.print("[pink3]      |____Use --help to show this help command")
+            cons.print("[pink3]      |____Use --json to specify that the input file is JSON")
+            cons.print("[pink3]      |____Use --json-path to specify the where the script will locate the data (required if --json is specified)")
+            cons.print("[pink3]      |____Use --conc to specify the number of elements in list to concatenate after parsing.")
 
         else:
             response:dict = query_the_docs(query_string=to_query,
@@ -223,5 +234,5 @@ while True:
         cons.print("[underline]Interrupt detected. Exiting")
         quit(0)
 
-    except Exception as e:
+    except InterruptedError as e:
         cons.print(f"[bold red]Error occured. Error: {e}")

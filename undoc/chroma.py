@@ -41,10 +41,15 @@ def parse_documents_file(file_path:str,
                         else:
                             # else just iterate over the list and append the data to the parsed docs list
                             final_path = json_path.index("LIST")+1
-                            for sublist in file:
-                                sublist = sublist[json_path[final_path]]
+                            for final_dictionary in file:
+                                # here, final_dictionary is the final dictionary, the end, after which we specify the key at which the text is stored
+                                final_dictionary:str = final_dictionary[json_path[final_path]]
 
-                                parsed_docs.append(sublist)
+                                if seperator != "NONE":
+                                    for i in final_dictionary.split(seperator):
+                                        parsed_docs.append(i)
+                                else:
+                                    parsed_docs.append(final_dictionary)
                             break
         # if the file type is something else.(most likely a text)
         elif file_type == 'text':
@@ -59,8 +64,6 @@ def parse_documents_file(file_path:str,
                 except IndexError:
                     print("Error. To specify a limit, this is the format: start_of_limit:end_of_limit. Start is 0")
                     exit(1)
-
-            #print(file)
             
             # seperate each line based on seperator provided
             for i in file:
@@ -77,7 +80,8 @@ def parse_documents_file(file_path:str,
     # think of this as 'batching': concatenate x number of docs together
     if concatenate != 0:
         for i in range(0, len(parsed_docs), concatenate):
-            concatenated_docs.append(parsed_docs[i:i+concatenate])
+            concatenated_doc = ' '.join(parsed_docs[i:i+concatenate])
+            concatenated_docs.append(concatenated_doc)
 
         return concatenated_docs
     else:
@@ -94,7 +98,6 @@ def new_collection(name="damn-the-docs",
 
     # create the ids
     ids = []
-
 
     # iterate for the ids
     for idx, _ in enumerate(docs):
@@ -117,11 +120,11 @@ def query_the_docs(query_string:str,
 
     # do basic querying
     queried = collection.query(
-            query_texts=[query_string],
+            query_texts=query_string,
             n_results=amount_to_query
         )
 
-    return queried
+    return format_chromadb_output(queried)
 
 def query_around(amount:int,
                  curr_id:str,
@@ -137,11 +140,19 @@ def query_around(amount:int,
 
     new_range = [f"{curr_id_str}_{i}" for i in range_to_query]
 
-    print(new_range)
-
     # return the queried range
     queried = collection.get(
         ids=list(new_range)
     )
 
+    #return format_chromadb_output(queried)
     return queried
+
+def format_chromadb_output(output:dict):
+    output = {
+        'ids': output['ids'],
+        'documents': output["documents"],
+        'distances': output["distances"] if 'distances' in output.keys() else []
+    }
+
+    return output
