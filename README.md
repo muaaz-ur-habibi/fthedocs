@@ -36,3 +36,18 @@ then just go into the directory, run the command
 python fthedocs.py --help
 ```
 to be presented with the help menu. Or just read the documentation of a documentation-bad-mouther below
+<hr>
+<h2>Documentation: 0_0</h2>
+<h3>Basic Usage</h3>
+<p>
+  When cloning the repo, you also clone a test.txt file. This is a scraped version of Beej's C Sockets Guide. This is also the test document that I used for testing FTheDocs. You can use this to play around with it aswell<br>
+  
+  ```
+  python fthedocs.py --file test.txt
+  ```
+  this is the most basic way to use FTheDocs. This command will load the test.txt file and present you in asking mode using default settings
+</p>
+<h3>Using JSON</h3>
+<p>
+  The `--file` is used for .txt files. To use .json files, use the argument `--json`
+</p>
