@@ -21,7 +21,8 @@ variables = {
     'amount_to_query': 1,
     'limit_to_add': None,
     'concatenation': 0,
-    'concatenator': ' '
+    'concatenator': ' ',
+    'show_settings_when_compiling_starts': False
 }
 
 # display help
@@ -60,7 +61,7 @@ if '--settings' in argv:
     
     cons.print("[bold yellow]Settings")
     
-    cons.print("|-1. (1) Change collection name\n|-2. (2) Change document id name\n|-3. (3) Change parsing seperator\n|-4. (4) Change amount of queried results\n|-5. (5) Set an integer value to concatenate the results in\n|-6. (6) Change the concatenator character\n|-7. Press (e) to exit")
+    cons.print("|-1. (1) Change collection name\n|-2. (2) Change document id name\n|-3. (3) Change parsing seperator\n|-4. (4) Change amount of queried results\n|-5. (5) Set an integer value to concatenate the results in\n|-6. (6) Change the concatenator character\n|-7. (7) Show your configured settings when building of collection starts\n|-8. Press (e) to exit")
     
 
 
@@ -71,32 +72,32 @@ if '--settings' in argv:
             option = cons.input("[cyan]> ")
 
             if option == '1':
-                cons.print(f"[cyan]Enter the new collection name. [underline]Current Value: {variables['collection_name']}")
-                new_collection_name = cons.input("[cyan]> ")
+                cons.print(f"[cyan]Enter the new collection name. [underline]Default Value: {variables['collection_name']}")
+                new_collection_name = cons.input("[cyan]Set Collectin Name> ")
                 variables['collection_name'] == new_collection_name
                 cons.print("[bold green]UPDATED")
             
             elif option == '2':
-                cons.print(f"[cyan]Enter the new document id starter. [underline]Current Value: {variables['document_id_starter']}")
-                new_document_id_starter = cons.input("[cyan]> ")
+                cons.print(f"[cyan]Enter the new document id starter. [underline]Default Value: {variables['document_id_starter']}")
+                new_document_id_starter = cons.input("[cyan]Set Document ID Starter> ")
                 variables["document_id_starter"] = new_document_id_starter
                 cons.print("[bold green]UPDATED")
 
             elif option == '3':
-                cons.print(f"[cyan]Enter the new parsing seperator. [underline]Current Value: {variables['parsing_seperator']}")
-                new_parsing_seperator = cons.input("[cyan]> ")
+                cons.print(f"[cyan]Enter the new parsing seperator. [underline]Default Value: {variables['parsing_seperator']}")
+                new_parsing_seperator = cons.input("[cyan]Set Parsing Seperator> ")
                 variables['parsing_seperator'] = new_parsing_seperator
                 cons.print("[bold green]UPDATED")
             
             elif option == '4':
-                cons.print(f"[cyan]Enter the new amount to be queried. [underline]Current Value: {variables['amount_to_query']}")
-                new_amount_to_be_queried = cons.input("[cyan]> ")
+                cons.print(f"[cyan]Enter the new amount to be queried. [underline]Default Value: {variables['amount_to_query']}")
+                new_amount_to_be_queried = cons.input("[cyan]Set Amount To Be Queried> ")
                 variables['amount_to_query'] = int(new_amount_to_be_queried)
                 cons.print("[bold green]UPDATED")
             
             elif option == '5':
-                cons.print(f"[cyan]Set a number of results to be concatenated together. [underline]Current Value: {variables['concatenation']}")
-                new_amount_to_be_concatenated = cons.input("[cyan]> ")
+                cons.print(f"[cyan]Set a number of results to be concatenated together. [underline]Default Value: {variables['concatenation']}")
+                new_amount_to_be_concatenated = cons.input("[cyan]Set Concatenated Results> ")
                 try:
                     variables['concatenation'] = int(new_amount_to_be_concatenated)
                     cons.print("[bold green]UPDATED")
@@ -104,10 +105,21 @@ if '--settings' in argv:
                     cons.print("[bold red]Oh come on, dont you know the meaning of a 'number'?")
             
             elif option == '6':
-                cons.print(f"[cyan]Set a character to serve as the concatenator. Current Value: {variables['concatenator']}")
-                new_concatenator = cons.input("[cyan]> ")
+                cons.print(f"[cyan]Set a character(s) to serve as the concatenator. Default Value: {variables['concatenator']}")
+                new_concatenator = cons.input("[cyan]Set Concatenator> ")
                 variables['concatenator'] = new_concatenator
                 cons.print("[bold green]UPDATED")
+            
+            elif option == '7':
+                cons.print(f"[cyan]Enable this to see these configured settings when the collection is building. Accepts (true) or (false). Default Value: {variables['show_settings_when_compiling_starts']}")
+                new_settings_shown = cons.input("[cyan]Enable/Disable Seeing Settings> ")
+                
+                if new_settings_shown == 'true':
+                    variables['show_settings_when_compiling_starts'] = True
+                elif new_settings_shown == 'false':
+                    variables['show_settings_when_compiling_starts'] = False
+                else:
+                    cons.print("[bold red]TRUE OR FALSE!")
 
             elif option == 'e':
                 exit_ = True
@@ -153,6 +165,11 @@ print("\n")
 cons.print("[bold blue3 on white]Bored of reading billions of lines of documentation,\njust to spot that one solution to your problem?\nWORRY NOT! Just stuff all those letters in here and ask what you want\n\n", justify="center")
 
 try:
+    if variables['show_settings_when_compiling_starts'] == True:
+        cons.print("[bold blue]SETTINGS:")
+        for key, value in variables.items():
+            cons.print(f"[italic]    {key}: {value}")
+
     with cons.status("[bold underline yellow]Building collection of docs", spinner='dqpb') as status:
         documents = parse_documents_file(file_path=file_path,
                                          seperator=variables['parsing_seperator'],
