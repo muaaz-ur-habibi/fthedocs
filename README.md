@@ -3,5 +3,7 @@
 <hr>
 <h2>Huh?</h2>
 <p>
-  Do you ever get tired of just reading documentation? Do you wish for a program with which you can just ask questions and get the answers from?
+  Do you ever get tired of just reading documentation?<br>
+  Do you wish for a program with which you can just ask questions and get the answers from?
 </p>
+<img src="https://github.com/user-attachments/assets/ac526b7b-8747-4459-9072-a59ef4decff6">
