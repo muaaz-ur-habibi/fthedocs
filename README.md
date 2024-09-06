@@ -49,5 +49,23 @@ to be presented with the help menu. Or just read the documentation of a document
 </p>
 <h3>Using JSON</h3>
 <p>
-  The `--file` is used for .txt files. To use .json files, use the argument `--json`
+  The `--file` is used for .txt files. To use .json files, use the argument `--json` to specify a .json file<br>
+  When using JSON, the `--json-path` argument becomes compulsory
+</p>
+<h3>JSON Path</h3>
+<p>
+  This is the key values of the .json file FTheDocs needs to take in order to reach the target text, which it then converts into a list of texts<br>
+  Think of it like this:<br>
+  
+  ```
+  {
+    'main': {
+      'key_1': 'value_1',
+      'key_2': {
+                'key_3': 'value_3'
+              }
+    }
+  }
+  ```
+  In order to reach all the desired texts, in this case `value_1` & `value_3`, FTheDocs needs to take the path 'main->key_1 and main->key_2->key_3'
 </p>
