@@ -21,12 +21,18 @@
 <ol>
   <li>You first stuff the entire documentation (which you should scrape and store into either a .txt or .json file) into FTheDocs</li>
   <li>FTheDocs then builds a 'collection' of those documents that you added, while also taking into consideration any settings you have given it (YOU CAN CUSTOMIZE IT)</li>
-  <li>Then it presents you into 'asking more', where you can ask the collection what you want to know from the docs</li>
+  <li>Then it presents you into 'asking mode', where you can ask the collection what you want to know from the docs</li>
 </ol>
 <hr>
 <h2>Oooook, how do I get started?</h2>
 <p>THATS EASY. Just git clone this repo :)</p>
 
 ```
-git clone 
+git clone https://github.com/muaaz-ur-habibi/fthedocs.git
 ```
+then just go into the directory, run the command
+
+```
+python fthedocs.py --help
+```
+to be presented with the help menu. Or just read the documentation of a documentation-bad-mouther below
