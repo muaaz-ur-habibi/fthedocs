@@ -6,4 +6,4 @@
   Do you ever get tired of just reading documentation?<br>
   Do you wish for a program with which you can just ask questions and get the answers from?
 </p>
-<img src="https://github.com/user-attachments/assets/ac526b7b-8747-4459-9072-a59ef4decff6">
+<img align="center" src="https://github.com/user-attachments/assets/3483ce0e-f850-49c8-988b-3102f390a8cc">
