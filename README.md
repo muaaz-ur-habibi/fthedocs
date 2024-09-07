@@ -41,7 +41,7 @@ to be presented with the help menu. Or just read the documentation below for mor
 <h2>Documentation: 0_0</h2>
 <h3>Basic Usage</h3>
 <p>
-  When cloning the repo, you also clone a test.txt file & a test.json. This is a scraped version of Beej's C Sockets Guide. This is also the test document that I used for testing FTheDocs. You can use this to play around with it aswell<br>
+  When cloning the repo, you also clone a test.txt & a test.json file. This is a scraped version of Beej's C Sockets Guide. This is also the test documents that I used for testing FTheDocs. You can use this to play around with it aswell<br>
   
   ```
   python fthedocs.py --file test.txt
