@@ -38,7 +38,7 @@ python fthedocs.py --help
 ```
 to be presented with the help menu. Or just read the documentation below for more details
 <hr>
-<h2>Documentation: 0_0</h2>
+<h2>Documentation:</h2>
 <h3>Basic Usage</h3>
 <p>
   When cloning the repo, you also clone a test.txt & a test.json file. This is a scraped version of Beej's C Sockets Guide. This is also the test documents that I used for testing FTheDocs. You can use this to play around with it aswell<br>
@@ -86,4 +86,23 @@ to be presented with the help menu. Or just read the documentation below for mor
       First fthedocs would go into 'css', there it will find a LIST, but we only need the 0th one, so we specified 'LIST[0]'. After that is another LIST, this one containing all the dictionaries, whose key that we need is 'content'
     
   </details>
+</p>
+<h3>Limits</h3>
+<p>
+  You can also specify a starting and ending point of the documents to be added. This is also a command-line argument.<br>
+  The syntax goes as: `starting_point:ending_point`
+</p>
+<h3>Settings</h3>
+<p>
+  CUSTOMIZING (kinda)<br><br>
+  There are quite a few things you can change. Some of them directly impact the results. Others not so much or not at all
+  <ul>
+    <li>Changing the collection name</li>
+    <li>Changing the document I.D name</li>
+    <li>Changing the parsing seperator</li>
+    <li>Changing the amount of queried results</li>
+    <li>Concatenating a set number of documents</li>
+    <li>Changing the concatenating character</li>
+    <li>Showing these settings when building the collection</li>
+  </ul>
 </p>
