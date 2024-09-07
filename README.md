@@ -1,3 +1,4 @@
+<p>PS: no documentations, nor any documentation-writers were harmed in the making of FTheDocs</p>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3483ce0e-f850-49c8-988b-3102f390a8cc">
 </p>
