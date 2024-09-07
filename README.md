@@ -73,8 +73,8 @@ to be presented with the help menu. Or just read the documentation below for mor
     <li>Multiple paths in a single run can NOT be specified</li>
   </ul>
   To specify this, use the argument: `--json-path "PATH|TO|LIST|OF|TEXTS`<br><br>
-  It would also be nice to know that, to specify the end of the path aka that 'here are the list of texts' you should add a LIST parameter<br>
-  Alternatively if you have many lists of list of texts, and only wish to use one of them, LIST also works like any list (in the sense you can use LIST[0] to specify an element at 1st index)<br><br>
+  It would also be nice to know that, to specify the end of the path aka that 'here are the list of dictionaries' you should add a LIST parameter<br><br>
+  Alternatively if you have many lists of lists, and only wish to use one of them, LIST also works like any list (in the sense you can use LIST[0] to specify an element at 1st index)<br><br>
   Too much to swallow? You bet. Go ahead and open the test.json file for me. I'll show you a real example.<br>
   <br>
   In here, you see there is a main dictionary, which has a "css" key, whose value is a LIST. Inside that LIST is another LIST, only one tho. That LIST is a list of dictionaries, with different HTML element properties. But what we are looking for is the "content" key of those dictionaries.<br><br>
@@ -82,7 +82,8 @@ to be presented with the help menu. Or just read the documentation below for mor
   What will be the json path of this file?<br>
   <details>
     <summary>Think about it for a second...</summary>
-      That would be "css|LIST[0]|LIST|content"
+      That would be "css|LIST[0]|LIST|content"<br><br>
+      First fthedocs would go into 'css', there it will find a LIST, but we only need the 0th one, so we specified 'LIST[0]'. After that is another LIST, this one containing all the dictionaries, whose key that we need is 'content'
     
   </details>
 </p>
