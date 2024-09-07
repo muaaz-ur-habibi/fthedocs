@@ -35,7 +35,7 @@ then just go into the directory, run the command
 ```
 python fthedocs.py --help
 ```
-to be presented with the help menu. Or just read the documentation of a documentation-bad-mouther below
+to be presented with the help menu. Or just read the documentation below for more details
 <hr>
 <h2>Documentation: 0_0</h2>
 <h3>Basic Usage</h3>
@@ -60,12 +60,18 @@ to be presented with the help menu. Or just read the documentation of a document
   ```
   {
     'main': {
-      'key_1': 'value_1',
-      'key_2': {
-                'key_3': 'value_3'
-              }
+      'key_1': {
+            'key_2': ["target_text_as_list"],
     }
   }
   ```
-  In order to reach all the desired texts, in this case `value_1` & `value_3`, FTheDocs needs to take the path 'main->key_1 and main->key_2->key_3'
+  In order to reach all the desired texts, in this case `["target_text_as_list"]`, FTheDocs needs to take the path 'main->key_1->key_2'<br><br>
+  Naturally, there will be limitations. In this case:
+  <ul>
+    <li>The final key MUST have a list of the texts to iterate over as its value</li>
+    <li>Multiple paths in a single run can NOT be specified</li>
+  </ul>
+  To specify this, use the argument: `--json-path "PATH|TO|LIST|OF|TEXTS`<br>
+  It would also be nice to know that, to specify the end of the path aka that 'here are the list of texts' you should add a LIST parameter<br>
+  Alternatively if you have many lists of list of texts, and only wish to use one of them, LIST also works like any list (in the sense you can use LIST[0] to specify an element at 1st index)
 </p>
