@@ -71,7 +71,7 @@ to be presented with the help menu. Or just read the documentation below for mor
     <li>The final key MUST have a list of the texts to iterate over as its value</li>
     <li>Multiple paths in a single run can NOT be specified</li>
   </ul>
-  To specify this, use the argument: `--json-path "PATH|TO|LIST|OF|TEXTS`<br>
+  To specify this, use the argument: `--json-path "PATH|TO|LIST|OF|TEXTS`<br><br>
   It would also be nice to know that, to specify the end of the path aka that 'here are the list of texts' you should add a LIST parameter<br>
   Alternatively if you have many lists of list of texts, and only wish to use one of them, LIST also works like any list (in the sense you can use LIST[0] to specify an element at 1st index)
 </p>
