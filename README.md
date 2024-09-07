@@ -82,7 +82,6 @@ to be presented with the help menu. Or just read the documentation below for mor
   What will be the json path of this file?<br>
   <details>
     <summary>Think about it for a second...</summary>
-
       That would be "css|LIST[0]|LIST|content"
     
   </details>
