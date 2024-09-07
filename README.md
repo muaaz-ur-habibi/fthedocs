@@ -40,7 +40,7 @@ to be presented with the help menu. Or just read the documentation below for mor
 <h2>Documentation: 0_0</h2>
 <h3>Basic Usage</h3>
 <p>
-  When cloning the repo, you also clone a test.txt file. This is a scraped version of Beej's C Sockets Guide. This is also the test document that I used for testing FTheDocs. You can use this to play around with it aswell<br>
+  When cloning the repo, you also clone a test.txt file & a test.json. This is a scraped version of Beej's C Sockets Guide. This is also the test document that I used for testing FTheDocs. You can use this to play around with it aswell<br>
   
   ```
   python fthedocs.py --file test.txt
@@ -68,10 +68,21 @@ to be presented with the help menu. Or just read the documentation below for mor
   In order to reach all the desired texts, in this case `["target_text_as_list"]`, FTheDocs needs to take the path 'main->key_1->key_2'<br><br>
   Naturally, there will be limitations. In this case:
   <ul>
-    <li>The final key MUST have a list of the texts to iterate over as its value</li>
+    <li>The final key MUST have a list of the dictionaries to iterate over as its value</li>
     <li>Multiple paths in a single run can NOT be specified</li>
   </ul>
   To specify this, use the argument: `--json-path "PATH|TO|LIST|OF|TEXTS`<br><br>
   It would also be nice to know that, to specify the end of the path aka that 'here are the list of texts' you should add a LIST parameter<br>
-  Alternatively if you have many lists of list of texts, and only wish to use one of them, LIST also works like any list (in the sense you can use LIST[0] to specify an element at 1st index)
+  Alternatively if you have many lists of list of texts, and only wish to use one of them, LIST also works like any list (in the sense you can use LIST[0] to specify an element at 1st index)<br><br>
+  Too much to swallow? You bet. Go ahead and open the test.json file for me. I'll show you a real example.<br>
+  <br>
+  In here, you see there is a main dictionary, which has a "css" key, whose value is a LIST. Inside that LIST is another LIST, only one tho. That LIST is a list of dictionaries, with different HTML element properties. But what we are looking for is the "content" key of those dictionaries.<br><br>
+
+  What will be the json path of this file?<br>
+  <details>
+    <summary>Think about it for a second...</summary>
+
+      That would be "css|LIST[0]|LIST|content"
+    
+  </details>
 </p>
