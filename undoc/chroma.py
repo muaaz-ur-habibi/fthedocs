@@ -28,6 +28,10 @@ def parse_documents_file(file_path:str,
             if json_path != None:
                 # split the path up
                 json_path = json_path.split("|")
+                # do some checks on the inputted path
+                if "LIST" not in json_path:
+                    print("LIST parameter not found. Please specify it to set a target list")
+
                 for path in json_path:
                     # iterate over the paths
 
@@ -52,6 +56,11 @@ def parse_documents_file(file_path:str,
                                 else:
                                     parsed_docs.append(final_dictionary)
                             break
+                limit = limit.split(":")
+                parsed_docs = parsed_docs[int(limit[0]):int(limit[1])]
+            else:
+                print("JSON file could not be parsed properly. Please check everything and retry")
+        
         # if the file type is something else.(most likely a text)
         elif file_type == 'text':
             # do some basic parsing
@@ -77,6 +86,9 @@ def parse_documents_file(file_path:str,
                                 parsed_docs.append(doc.strip())
                     else:
                         parsed_docs.append(i.strip())
+            
+        else:
+            print("Invalid file provided. Please provide either a .txt or a .json")
 
     # think of this as 'batching': concatenate x number of docs together
     if concatenate != 0:

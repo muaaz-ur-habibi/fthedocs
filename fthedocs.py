@@ -7,8 +7,8 @@ from sys import argv
 cons = Console()
 cons.clear()
 
-pyfiglet.print_figlet("F__kTheDocs", font="diet_cola", width=400)
-cons.rule("[italic]F**KTHEDOCS")
+pyfiglet.print_figlet("FTheDocs", font="diet_cola", width=400)
+cons.rule("[italic]FTHEDOCS")
 print("\n")
 
 # a dictionary containing all the necessary variables that will be used for querying and query creation
@@ -33,6 +33,7 @@ if '--help' in argv or '-h' in argv:
     cons.print("[pink3]      |____Use --help to show this help command")
     cons.print("[pink3]      |____Use --json to specify that the input file is JSON")
     cons.print("[pink3]      |____Use --json-path to specify the where the script will locate the data (required if --json is specified)")
+    cons.print("[pink3]      |____Use --limit to specify a limit on the document added. Syntax is:  start:end (starts from 0)")
 
     exit(0)
 
@@ -57,12 +58,11 @@ if '--settings' in argv:
     cons.print("[yellow]Entering into settings")
     cons.clear()
 
-    pyfiglet.print_figlet("F__kTheDocs", font="diet_cola", width=400)
+    pyfiglet.print_figlet("FTheDocs", font="diet_cola", width=400)
     
     cons.print("[bold yellow]Settings")
     
     cons.print("|-1. (1) Change collection name\n|-2. (2) Change document id name\n|-3. (3) Change parsing seperator\n|-4. (4) Change amount of queried results\n|-5. (5) Set an integer value to concatenate the results in\n|-6. (6) Change the concatenator character\n|-7. (7) Show your configured settings when building of collection starts\n|-8. Press (e) to exit")
-    
 
 
     exit_ = False
@@ -76,7 +76,7 @@ if '--settings' in argv:
                 new_collection_name = cons.input("[cyan]Set Collectin Name> ")
                 variables['collection_name'] == new_collection_name
                 cons.print("[bold green]UPDATED")
-            
+
             elif option == '2':
                 cons.print(f"[cyan]Enter the new document id starter. [underline]Default Value: {variables['document_id_starter']}")
                 new_document_id_starter = cons.input("[cyan]Set Document ID Starter> ")
@@ -128,8 +128,8 @@ if '--settings' in argv:
             exit(1)
     
     cons.clear()
-    pyfiglet.print_figlet("F__kTheDocs", font="diet_cola", width=400)
-    cons.rule("[italic]F**KTHEDOCS", style="rule.bar")
+    pyfiglet.print_figlet("FTheDocs", font="diet_cola", width=400)
+    cons.rule("[italic]FTHEDOCS", style="rule.bar")
 
 if '--json' in argv:
     variables["file_type"] = 'json'
@@ -197,8 +197,8 @@ input()
 
 
 cons.clear()
-pyfiglet.print_figlet("F__kTheDocs", font="diet_cola", width=400)
-cons.rule("[italic]F**KTHEDOCS", style="rule.bar")
+pyfiglet.print_figlet("FTheDocs", font="diet_cola", width=400)
+cons.rule("[italic]FTHEDOCS", style="rule.bar")
 print("\n")
 cons.print("[green]Entered asking mode.\n    [underline bold]Options[/underline bold]:\n      (a)round: returns specified number of elements around the selected one. Eg: a 2\n      (c)lear: clear the screen\n      (h)elp: print help info\n      (Ctrl+C): exit")
 
@@ -236,15 +236,6 @@ while True:
                 ))
             except IndexError:
                 cons.print("[bold red]Error. A syntax error. Did you follow the syntax for querying around a specific I.D?")
-        
-        elif to_query == 'h':
-            cons.print("[bold]HOW TO USE (if you dont understand anything here you can visit the README of the Github repo):")
-            cons.print("[pink3]      |____Use --file to state the file to use. Be sure to use the absolute file path")
-            cons.print("[pink3]      |____Use --settings to tweak the settings configuration")
-            cons.print("[pink3]      |____Use --help to show this help command")
-            cons.print("[pink3]      |____Use --json to specify that the input file is JSON")
-            cons.print("[pink3]      |____Use --json-path to specify the where the script will locate the data (required if --json is specified)")
-            
 
         else:
             response:dict = query_the_docs(query_string=to_query,
