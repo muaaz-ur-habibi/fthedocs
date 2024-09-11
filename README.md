@@ -1,4 +1,3 @@
-<p>PS: no documentations, nor any documentation-writers were harmed in the making of FTheDocs</p>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3483ce0e-f850-49c8-988b-3102f390a8cc">
 </p>
@@ -9,19 +8,20 @@
 <p>
   Do you ever get tired of just reading documentation?<br>
   Do you wish for a program with which you can just ask questions and get the answers from?<br>
-  Well, this piece of garbage is (probably) just for you!
+  Well, this piece of majesticity is (probably) just for you!
 </p>
 <hr>
 <h2>So what <i>IS</i> FTheDocs?</h2>
 <p>
   Glad you asked. FTheDocs is a super advanced documentation querier software, that you can use to get information from the documentation faster and (maybe) more efficiently.<br>
-  In short, it's a vector database querying engine.
+  It first embeds all your docs, then, using your query, finds the closest most accurate piece of embedding to the embedding of the query<br>
+  In short, it's a <a href="https://www.google.com/search?q=what+is+a+vector+database">vector database</a> querying software
 </p>
 <hr>
 <h2>How does it work?</h2>
 <ol>
   <li>You first stuff the entire documentation (which you should scrape and store into either a .txt or .json file) into FTheDocs</li>
-  <li>FTheDocs then builds a 'collection' of those documents that you added, while also taking into consideration any settings you have given it (YOU CAN CUSTOMIZE IT)</li>
+  <li>FTheDocs then builds a 'collection' of those documents after parsing them, while also taking into consideration any settings you have given it (YOU CAN CUSTOMIZE IT)</li>
   <li>Then it presents you into 'asking mode', where you can ask the collection what you want to know from the docs</li>
 </ol>
 <hr>
@@ -50,7 +50,7 @@ to be presented with the help menu. Or just read the documentation below for mor
 </p>
 <h3>Using JSON</h3>
 <p>
-  The `--file` is used for .txt files. To use .json files, use the argument `--json` to specify a .json file<br>
+  The argument `--file` is used for .txt files. To use .json files, use the argument `--json` to specify a .json file<br>
   When using JSON, the `--json-path` argument becomes compulsory
 </p>
 <h3>JSON Path</h3>
@@ -105,4 +105,14 @@ to be presented with the help menu. Or just read the documentation below for mor
     <li>Changing the concatenating character</li>
     <li>Showing these settings when building the collection</li>
   </ul>
+  Just from reading im pretty sure you can figure out which one has an impact on the result.<br>
 </p>
+<ol>
+  <li><h3>Collection Name:</h3><br>This changes the created collection's name.</li>
+  <li><h3>Document I.D Name:</h3>This changes the document I.D starting string</li>
+  <li><h3>Parsing seperator:</h3>This changes the splitting criteria for each line. So if this is a '.', each line of the text/json file will be splitted further on each '.'. Can be useful for more seperation</li>
+  <li><h3>Amount of Queried Results:</h3>Changes the amount of results that are returned back to the user, usually in ascending order of close match.</li>
+  <li><h3>Concatenating Docs:</h3>You can also concatenate an integer number of docs together, to create a bigger document. Think of it as the opposite of Parsing Seperator</li>
+  <li><h3>Change Concatenation Character:</h3>Concatenate on a custom character. Eg: 'document 1', 'document 2'. Character is '. ' (spaces will matter). So the concatenated will be 'document 1. document 2'</li>
+  <li><h3>Showing the Settings:</h3>Doesnt do much. Just display the settings when building the collection. Just in case you realise you messed up a setting or two</li>
+</ol>
