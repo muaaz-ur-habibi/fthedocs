@@ -108,7 +108,7 @@ to be presented with the help menu. Or just read the documentation below for mor
   Just from reading im pretty sure you can figure out which one has an impact on the result.<br>
 </p>
 <ol>
-  <li><h3>Collection Name:</h3><br>This changes the created collection's name.</li>
+  <li><h3>Collection Name:</h3>This changes the created collection's name.</li>
   <li><h3>Document I.D Name:</h3>This changes the document I.D starting string</li>
   <li><h3>Parsing seperator:</h3>This changes the splitting criteria for each line. So if this is a '.', each line of the text/json file will be splitted further on each '.'. Can be useful for more seperation</li>
   <li><h3>Amount of Queried Results:</h3>Changes the amount of results that are returned back to the user, usually in ascending order of close match.</li>
