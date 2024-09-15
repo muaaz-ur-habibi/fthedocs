@@ -43,7 +43,7 @@ to be presented with the help menu. Or just read the documentation below for mor
   <li>Pretty curses like output in the terminal using Rich library</li>
   <li>Question-Answer style querying system</li>
   <li>Verbose output of whatever process is currently on-going (still working on this)</li>
-  <li>ALOT of customization</li>
+  <li>Settings to allow the program to be fitted according to your documentation</li>
   <li>Free AND Open-source</li>
 </ol>
 <hr>
