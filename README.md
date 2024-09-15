@@ -38,6 +38,15 @@ python fthedocs.py --help
 ```
 to be presented with the help menu. Or just read the documentation below for more details
 <hr>
+<h3>Some Features:</h3>
+<ol>
+  <li>Pretty curses like output in the terminal using Rich library</li>
+  <li>Question-Answer style querying system</li>
+  <li>Verbose output of whatever process is currently on-going (still working on this)</li>
+  <li>ALOT of customization</li>
+  <li>Free AND Open-source</li>
+</ol>
+<hr>
 <h2>Documentation:</h2>
 <h3>Basic Usage</h3>
 <p>
