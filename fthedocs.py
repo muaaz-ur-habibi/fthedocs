@@ -40,7 +40,7 @@ if '--help' in argv or '-h' in argv:
 # some simple command line parsing
 if "--file" not in argv and "--json" not in argv:
     cons.print("[bold red]Error. No file path specified. HOW AM I SUPPOSED TO HELP YOU?")
-    cons.print("[red]To specify a file path, just type '--file the_actual_file_path' OR for a .json file, '--json the_actual_file_path'")
+    cons.print("[bold red]To specify a file path, just type '--file the_actual_file_path' OR for a .json file, '--json the_actual_file_path'")
 
     exit(1)
 
@@ -124,7 +124,7 @@ if '--settings' in argv:
             elif option == 'e':
                 exit_ = True
         except KeyboardInterrupt:
-            cons.print("[red]Exiting")
+            cons.print("[bold red]Exiting")
             exit(1)
     
     cons.clear()
@@ -192,7 +192,7 @@ except KeyboardInterrupt as e:
     cons.print(f"[bold red]Error occured in creating a collection. Error: {e}")
 
 # let user read whatever the hell happened till now, though there isnt much to read
-cons.print("[green]Switching over to asking mode. Press [white on red]{Enter}[/white on red] to continue..")
+cons.print("[green]Switching over to asking mode. Press [red on white]{Enter}[/red on white] to continue..")
 input()
 
 
@@ -244,7 +244,7 @@ while True:
                                     )
 
             last_id = response['ids'][0][0]
-            print(last_id)
+            
             cons.print(response)
 
     except KeyboardInterrupt:
