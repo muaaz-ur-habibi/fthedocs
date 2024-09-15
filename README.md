@@ -120,7 +120,7 @@ to be presented with the help menu. Or just read the documentation below for mor
   <li><h3>Collection Name:</h3>This changes the created collection's name.</li>
   <li><h3>Document I.D Name:</h3>This changes the document I.D starting string</li>
   <li><h3>Parsing seperator:</h3>This changes the splitting criteria for each line. So if this is a '.', each line of the text/json file will be splitted further on each '.'. Can be useful for more seperation</li>
-  <li><h3>Amount of Queried Results:</h3>Changes the amount of results that are returned back to the user, usually in ascending order of close match.</li>
+  <li><h3>Amount of Queried Results:</h3>Changes the amount of results that are returned back to the user, usually in ascending order of close match. NOTE: setting this to anything other than 1 will disable the 'Query around' functionality (explained later on)</li>
   <li><h3>Concatenating Docs:</h3>You can also concatenate an integer number of docs together, to create a bigger document. Think of it as the opposite of Parsing Seperator</li>
   <li><h3>Change Concatenation Character:</h3>Concatenate on a custom character. Eg: 'document 1', 'document 2'. Character is '. ' (spaces will matter). So the concatenated will be 'document 1. document 2'</li>
   <li><h3>Showing the Settings:</h3>Doesnt do much. Just display the settings when building the collection. Just in case you realise you messed up a setting or two</li>
