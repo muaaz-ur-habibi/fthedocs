@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">F The Docs</h1>
 <h3 align="center">Exactly what it sounds like</h3>
-<p align="center">P.S: No offence is intended to documentation writers, nor to any documentations. I love the effort you guys put to writing good, easy-to-follow <i>(ahm)</i> manuals for software ❤️</p>
+<p align="center">P.S: No offence is intended to documentation writers, nor to any documentations. I love the effort you guys put to writing good, <i>(ahm)</i> easy-to-follow manuals for software ❤️</p>
 <p align="center">This was created as a fun side project. Please do not get mad at me if this doesnt meet your expectations</p>
 <hr>
 <h2>Huh?</h2>
