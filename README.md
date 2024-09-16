@@ -125,3 +125,6 @@ to be presented with the help menu. Or just read the documentation below for mor
   <li><h3>Change Concatenation Character:</h3>Concatenate on a custom character. Eg: 'document 1', 'document 2'. Character is '. ' (spaces will matter). So the concatenated will be 'document 1. document 2'</li>
   <li><h3>Showing the Settings:</h3>Doesnt do much. Just display the settings when building the collection. Just in case you realise you messed up a setting or two</li>
 </ol>
+<hr>
+Those were the basics of FTheDocs. Incase you dont understand anything OR encounter an issue/problem, you can always open up an issue, and ill make sure to find some time to respond :)
+<hr>
