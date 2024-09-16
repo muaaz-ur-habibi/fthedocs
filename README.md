@@ -40,7 +40,7 @@ to be presented with the help menu. Or just read the documentation below for mor
 <hr>
 <h3>Some Features:</h3>
 <ol>
-  <li>Pretty curses like output in the terminal using Rich library</li>
+  <li>Pretty Console UI using Rich library</li>
   <li>Question-Answer style querying system</li>
   <li>Verbose output of whatever process is currently on-going (still working on this)</li>
   <li>Settings to allow the program to be fitted according to your documentation</li>
