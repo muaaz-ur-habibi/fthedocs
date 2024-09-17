@@ -4,7 +4,7 @@
 <h1 align="center">F The Docs</h1>
 <h3 align="center">Exactly what it sounds like</h3>
 <p align="center">P.S: No offence is intended to documentation writers, nor to any documentations. I love the effort you guys put to writing good, <i>(ahm)</i> easy-to-follow manuals for software ❤️</p>
-<p align="center">This was created as a fun side project. Please do not get mad at me if this doesnt meet your expectations</p>
+<p align="center">This was created as a fun side project to learn some <a href="https://www.google.com/search?q=What+Is+Retrieval+Augmented+Generation">RAG</a>. Please do not get mad at me if this doesnt meet your expectations</p>
 <hr>
 <h2>Huh?</h2>
 <p>
@@ -138,5 +138,4 @@ Those were the basics of FTheDocs. Incase you dont understand anything OR encoun
   <li>Cannot format the documentation for you (in json)</li>
   <li>It isnt an AI so you cant ask it anything</li>
   <li>Cannot give you emotional support (<i>I tried</i>)</li>
-  <li>Made as a fun project to learn some <a href="https://www.google.com/search?q=What+Is+Retrieval+Augmented+Generation">RAG</a></li>
 </ul>
