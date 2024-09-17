@@ -100,7 +100,7 @@ to be presented with the help menu. Or just read the documentation below for mor
 </p>
 <h3>Limits</h3>
 <p>
-  You can also specify a starting and ending point of the documents to be added. This is also a command-line argument.<br>
+  You can also specify a starting and ending point of the document to be added. In normal cases this would be the line limit. This is also a command-line argument.<br>
   The syntax goes as: `starting_point:ending_point`
 </p>
 <h3>Settings</h3>
