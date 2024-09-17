@@ -130,7 +130,7 @@ to be presented with the help menu. Or just read the documentation below for mor
 <hr>
 Those were the basics of FTheDocs. Incase you dont understand anything OR encounter an issue/problem, you can always open up an issue, and ill make sure to find some time to respond :)
 <hr>
-<h3>Limitations:</h3>
+<h2>Limitations:</h2>
 <ul>
   <li>No file types supported other than .txt and .json</li>
   <li>Cannot save a previous collection</li>
