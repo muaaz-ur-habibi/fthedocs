@@ -139,3 +139,10 @@ Those were the basics of FTheDocs. Incase you dont understand anything OR encoun
   <li>It isnt an AI so you cant ask it anything</li>
   <li>Cannot give you emotional support (<i>I tried</i>)</li>
 </ul>
+<hr>
+<h2>Roadmap</h2>
+What will I add?
+<ul>
+  <li>Saving built collections</li>
+  <li>Saving user settings</li>
+</ul>
