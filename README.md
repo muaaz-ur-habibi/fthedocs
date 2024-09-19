@@ -80,7 +80,7 @@ to be presented with the help menu. Or just read the documentation below for mor
   In order to reach all the desired texts, in this case `["target_text_as_list"]`, FTheDocs needs to take the path 'main->key_1->key_2'<br><br>
   Naturally, there will be limitations. In this case:
   <ul>
-    <li>The final key MUST have a list of the dictionaries to iterate over as its value</li>
+    <li>The path MUST include a 'LIST' parameter, for FTheDocs to iterate over. Now whether that list is a list of dictionaries, strings. It doesnt matter</li>
     <li>Multiple paths in a single run can NOT be specified</li>
   </ul>
   To specify this, use the argument: `--json-path "PATH|TO|LIST|OF|TEXTS`<br><br>
