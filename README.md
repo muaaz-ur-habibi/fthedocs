@@ -3,6 +3,8 @@
 </p>
 <h1 align="center">F The Docs</h1>
 <h3 align="center">Exactly what it sounds like</h3>
+<p align="center">P.S: No offence is intended to documentation writers, nor to any documentations. I love the effort you guys put to writing good, <i>(ahm)</i> easy-to-follow manuals for software ❤️</p>
+<p align="center">This was created as a fun side project to learn some <a href="https://www.google.com/search?q=What+Is+Retrieval+Augmented+Generation">RAG</a>. Please do not get mad at me if this doesnt meet your expectations</p>
 <hr>
 <h2>Huh?</h2>
 <p>
@@ -38,6 +40,15 @@ python fthedocs.py --help
 ```
 to be presented with the help menu. Or just read the documentation below for more details
 <hr>
+<h3>Some Features:</h3>
+<ol>
+  <li>Pretty Console UI using Rich library</li>
+  <li>Question-Answer style querying system</li>
+  <li>Verbose output of whatever process is currently on-going (still working on this)</li>
+  <li>Settings to allow the program to be fitted according to your documentation</li>
+  <li>Free AND Open-source</li>
+</ol>
+<hr>
 <h2>Documentation:</h2>
 <h3>Basic Usage</h3>
 <p>
@@ -69,7 +80,7 @@ to be presented with the help menu. Or just read the documentation below for mor
   In order to reach all the desired texts, in this case `["target_text_as_list"]`, FTheDocs needs to take the path 'main->key_1->key_2'<br><br>
   Naturally, there will be limitations. In this case:
   <ul>
-    <li>The final key MUST have a list of the dictionaries to iterate over as its value</li>
+    <li>The path MUST include a 'LIST' parameter, for FTheDocs to iterate over. Now whether that list is a list of dictionaries, strings. It doesnt matter</li>
     <li>Multiple paths in a single run can NOT be specified</li>
   </ul>
   To specify this, use the argument: `--json-path "PATH|TO|LIST|OF|TEXTS`<br><br>
@@ -89,7 +100,7 @@ to be presented with the help menu. Or just read the documentation below for mor
 </p>
 <h3>Limits</h3>
 <p>
-  You can also specify a starting and ending point of the documents to be added. This is also a command-line argument.<br>
+  You can also specify a starting and ending point of the document to be added. In normal cases this would be the line limit. This is also a command-line argument.<br>
   The syntax goes as: `starting_point:ending_point`
 </p>
 <h3>Settings</h3>
@@ -111,8 +122,20 @@ to be presented with the help menu. Or just read the documentation below for mor
   <li><h3>Collection Name:</h3>This changes the created collection's name.</li>
   <li><h3>Document I.D Name:</h3>This changes the document I.D starting string</li>
   <li><h3>Parsing seperator:</h3>This changes the splitting criteria for each line. So if this is a '.', each line of the text/json file will be splitted further on each '.'. Can be useful for more seperation</li>
-  <li><h3>Amount of Queried Results:</h3>Changes the amount of results that are returned back to the user, usually in ascending order of close match.</li>
+  <li><h3>Amount of Queried Results:</h3>Changes the amount of results that are returned back to the user, usually in ascending order of close match. NOTE: setting this to anything other than 1 will disable the 'Query around' functionality (explained later on)</li>
   <li><h3>Concatenating Docs:</h3>You can also concatenate an integer number of docs together, to create a bigger document. Think of it as the opposite of Parsing Seperator</li>
   <li><h3>Change Concatenation Character:</h3>Concatenate on a custom character. Eg: 'document 1', 'document 2'. Character is '. ' (spaces will matter). So the concatenated will be 'document 1. document 2'</li>
   <li><h3>Showing the Settings:</h3>Doesnt do much. Just display the settings when building the collection. Just in case you realise you messed up a setting or two</li>
 </ol>
+<hr>
+Those were the basics of FTheDocs. Incase you dont understand anything OR encounter an issue/problem, you can always open up an issue, and ill make sure to find some time to respond :)
+<hr>
+<h2>Limitations:</h2>
+<ul>
+  <li>No file types supported other than .txt and .json</li>
+  <li>Cannot save a previous collection</li>
+  <li>Cannot scrape the documentation for you</li>
+  <li>Cannot format the documentation for you (in json)</li>
+  <li>It isnt an AI so you cant ask it anything</li>
+  <li>Cannot give you emotional support (<i>I tried</i>)</li>
+</ul>
