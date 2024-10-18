@@ -74,7 +74,7 @@ if '--settings' in argv:
             if option == '1':
                 cons.print(f"[cyan]Enter the new collection name. [underline]Default Value: {variables['collection_name']}")
                 new_collection_name = cons.input("[cyan]Set Collectin Name> ")
-                variables['collection_name'] == new_collection_name
+                variables['collection_name'] = new_collection_name
                 cons.print("[bold green]UPDATED")
 
             elif option == '2':
